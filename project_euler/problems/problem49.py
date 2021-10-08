@@ -72,7 +72,7 @@ def problem49():
     final_candidate = filter(
         lambda _candidate: 1487 not in _candidate, candidates_with_all_criteria
     )
-    return extract_the_correct_terms_and_concat(next(final_candidate))
+    return int(extract_the_correct_terms_and_concat(next(final_candidate)))
 
 
 if __name__ == "__main__":

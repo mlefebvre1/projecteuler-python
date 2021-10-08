@@ -117,7 +117,7 @@ def problem13():
         for line in data:
             n = int(line.split("\n")[0])
             total += n
-    return str(total)[0:10]
+    return int(str(total)[0:10])
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ def problem24():
     a = "0123456789"
     lexicographic_permutations = list(itertools.permutations(a))
     k = 1000000
-    return "".join(lexicographic_permutations[k - 1])
+    return int("".join(lexicographic_permutations[k - 1]))
 
 
 if __name__ == "__main__":

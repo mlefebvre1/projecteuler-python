@@ -58,7 +58,7 @@ def problem79():
         digit = find_largest_digit(logins, digits_to_place)
         digits_to_place.remove(digit)
         passcode += digit
-    return passcode
+    return int(passcode)
 
 
 if __name__ == "__main__":
