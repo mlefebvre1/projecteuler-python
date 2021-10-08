@@ -1,6 +1,6 @@
 from typing import Iterator, List
-
-from project_euler.utils.timeit import timeit
+from pathlib import Path
+from ..utils.timeit import timeit
 
 
 def generate_digit_candidates(logins: List[str]) -> Iterator[str]:
@@ -46,7 +46,7 @@ def problem79():
     possible secret passcode of unknown length.
 
     """
-    with open("data/problem79.txt", "r") as fp:
+    with open(f"{Path(__file__).parent}/data/problem79.txt", "r") as fp:
         logins = fp.read()
 
     logins = logins.split("\n")
@@ -61,4 +61,5 @@ def problem79():
     return passcode
 
 
-problem79()
+if __name__ == "__main__":
+    problem79()

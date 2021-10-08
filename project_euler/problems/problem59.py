@@ -1,7 +1,8 @@
+from pathlib import Path
 from functools import reduce
 from typing import List, Iterable
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def seperate_cipher_into_3_streams(cipher: List[str]) -> List[List[str]]:
@@ -56,7 +57,7 @@ def problem59():
     plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the
     original text
     """
-    with open("data/problem59.txt", "r") as fp:
+    with open(f"{Path(__file__).parent}/data/problem59.txt", "r") as fp:
         fp_data = fp.read()
         fp.close()
 
@@ -74,4 +75,5 @@ def problem59():
     return reduce(lambda total, char: total + ord(char), decoded_text, 0)
 
 
-problem59()
+if __name__ == "__main__":
+    problem59()

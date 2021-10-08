@@ -1,6 +1,6 @@
 from functools import reduce
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit

@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_digit_power_match(power):
@@ -28,4 +28,5 @@ def problem63():
     return total
 
 
-problem63()
+if __name__ == "__main__":
+    problem63()

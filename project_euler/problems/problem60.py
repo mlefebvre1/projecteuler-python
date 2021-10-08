@@ -1,8 +1,8 @@
 from typing import List
 
-from project_euler.number_theory.primes import sieves, is_prime
+from ..number_theory.primes import sieves, is_prime
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 _TARGET = 5
 
@@ -49,4 +49,5 @@ def problem60():
             return ans
 
 
-problem60()
+if __name__ == "__main__":
+    problem60()

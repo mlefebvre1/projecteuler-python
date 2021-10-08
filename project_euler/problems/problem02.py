@@ -1,6 +1,6 @@
-from project_euler.number_theory.series import fibonacci_generator
+from ..number_theory.series import fibonacci_generator
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit

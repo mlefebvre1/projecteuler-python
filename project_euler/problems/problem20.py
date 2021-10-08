@@ -1,6 +1,6 @@
 from math import factorial
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -23,4 +23,5 @@ def problem20():
     return digits_sum
 
 
-problem20()
+if __name__ == "__main__":
+    problem20()

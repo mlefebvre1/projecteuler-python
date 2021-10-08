@@ -1,7 +1,7 @@
 from functools import reduce
 from math import sqrt
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 class SqrtDigitExpansion:
@@ -72,4 +72,5 @@ def problem80():
     return sum(sqrt_digit_expansion.calculate_and_get_digit_sum(n) for n in numbers)
 
 
-problem80()
+if __name__ == "__main__":
+    problem80()

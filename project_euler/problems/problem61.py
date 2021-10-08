@@ -2,7 +2,7 @@ from typing import List
 
 import project_euler.geometry.geometry as geometry
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def make_polygonals() -> List[List[int]]:
@@ -108,4 +108,5 @@ def problem61():
             return cyclic_sum + n
 
 
-problem61()
+if __name__ == "__main__":
+    problem61()

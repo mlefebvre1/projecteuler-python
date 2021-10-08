@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import List
 from pathlib import Path
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_name_score(names: List[str]) -> List[int]:
@@ -35,4 +35,5 @@ def problem22():
     return names_score
 
 
-problem22()
+if __name__ == "__main__":
+    problem22()

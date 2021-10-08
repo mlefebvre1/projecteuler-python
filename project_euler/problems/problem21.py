@@ -1,6 +1,6 @@
-from project_euler.number_theory.factor import proper_divisors_sum
+from ..number_theory.factor import proper_divisors_sum
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -27,4 +27,5 @@ def problem21():
     return total
 
 
-problem21()
+if __name__ == "__main__":
+    problem21()

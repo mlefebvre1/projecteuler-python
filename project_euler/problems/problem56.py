@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import Iterable
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_digit_sum() -> Iterable[int]:
@@ -25,4 +25,5 @@ def problem56():
     return max(digit_sums)
 
 
-problem56()
+if __name__ == "__main__":
+    problem56()

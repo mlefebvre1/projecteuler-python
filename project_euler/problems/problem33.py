@@ -1,7 +1,7 @@
 from math import gcd
 from typing import Iterable
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def is_non_trivial_two_digits_curious_fraction(
@@ -53,4 +53,5 @@ def problem33():
     return int(denominator_total / gcd(denominator_total, numerator_total))
 
 
-problem33()
+if __name__ == "__main__":
+    problem33()

@@ -1,6 +1,6 @@
 from project_euler.geometry.geometry import is_pentagonal, is_hexagonal, triangular
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -29,4 +29,5 @@ def problem45():
     return t
 
 
-problem45()
+if __name__ == "__main__":
+    problem45()

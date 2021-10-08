@@ -1,6 +1,6 @@
-from project_euler.number_theory.factor import proper_divisors_sum
+from ..number_theory.factor import proper_divisors_sum
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_abundants(max_n):
@@ -49,4 +49,5 @@ def problem23():
     return sum_non_two_abundant
 
 
-problem23()
+if __name__ == "__main__":
+    problem23()

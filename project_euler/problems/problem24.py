@@ -1,6 +1,6 @@
 import itertools
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -22,4 +22,5 @@ def problem24():
     return "".join(lexicographic_permutations[k - 1])
 
 
-problem24()
+if __name__ == "__main__":
+    problem24()

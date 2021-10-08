@@ -1,8 +1,8 @@
 from typing import Iterable
 
-from project_euler.number_theory.primes import sieves_range, is_prime
+from ..number_theory.primes import sieves_range, is_prime
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def is_truncatable(prime: int) -> bool:
@@ -47,4 +47,5 @@ def problem37():
     return sum(truncatable_primes)
 
 
-problem37()
+if __name__ == "__main__":
+    problem37()

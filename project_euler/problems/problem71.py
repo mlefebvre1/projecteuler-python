@@ -1,6 +1,6 @@
 from math import floor
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -35,4 +35,5 @@ def problem71():
     return min_n
 
 
-problem71()
+if __name__ == "__main__":
+    problem71()

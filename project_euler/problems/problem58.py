@@ -1,6 +1,6 @@
-from project_euler.number_theory.primes import is_prime
+from ..number_theory.primes import is_prime
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def calculate_next_values(values, increments):
@@ -62,4 +62,5 @@ def problem58():
             return 2 * side_len + 1
 
 
-problem58()
+if __name__ == "__main__":
+    problem58()

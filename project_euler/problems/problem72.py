@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import List
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def make_distinct_primes_by_n(max_n: int) -> List[List[int]]:
@@ -53,4 +53,5 @@ def problem72():
     return sum(generate_phi_by_n())
 
 
-problem72()
+if __name__ == "__main__":
+    problem72()

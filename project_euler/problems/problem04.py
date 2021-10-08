@@ -1,6 +1,6 @@
-from project_euler.number_theory.palindrome import is_palindrome
+from ..number_theory.palindrome import is_palindrome
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit

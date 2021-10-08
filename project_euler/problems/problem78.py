@@ -2,7 +2,7 @@ from typing import Iterator, List
 
 from project_euler.geometry.geometry import triangular
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generalized_pentagonal_number_generator() -> Iterator[int]:
@@ -65,4 +65,5 @@ def problem78():
         partitions[n] = pn
 
 
-problem78()
+if __name__ == "__main__":
+    problem78()

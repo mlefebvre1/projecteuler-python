@@ -1,6 +1,6 @@
 from functools import reduce
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def convergent_of_e_fraction(m):
@@ -68,4 +68,5 @@ def problem65():
     return digit_sum
 
 
-problem65()
+if __name__ == "__main__":
+    problem65()

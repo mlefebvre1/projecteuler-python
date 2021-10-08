@@ -1,6 +1,6 @@
-from project_euler.number_theory.primes import sieves
+from ..number_theory.primes import sieves
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_above_target():
@@ -37,4 +37,5 @@ def problem77():
     return min(candidates)
 
 
-problem77()
+if __name__ == "__main__":
+    problem77()

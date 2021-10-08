@@ -1,9 +1,9 @@
 from typing import Iterable
 
-from project_euler.number_theory.primes import sieves_range, is_prime
-from project_euler.number_theory.rotations import rotations
+from ..number_theory.primes import sieves_range, is_prime
+from ..number_theory.rotations import rotations
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def circular(all_rotations: Iterable[int]) -> bool:
@@ -41,4 +41,5 @@ def problem35():
     return nb_circular
 
 
-problem35()
+if __name__ == "__main__":
+    problem35()

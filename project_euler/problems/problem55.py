@@ -1,6 +1,6 @@
-from project_euler.number_theory.palindrome import is_palindrome
+from ..number_theory.palindrome import is_palindrome
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def is_lynchrel_number(n: int) -> bool:
@@ -50,4 +50,5 @@ def problem55():
     return len(lynchrel_numbers)
 
 
-problem55()
+if __name__ == "__main__":
+    problem55()

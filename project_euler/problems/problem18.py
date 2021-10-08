@@ -1,6 +1,6 @@
 from typing import List
 from pathlib import Path
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def prepare_data() -> List[List[int]]:
@@ -68,4 +68,5 @@ def problem18():
     return max_path
 
 
-problem18()
+if __name__ == "__main__":
+    problem18()

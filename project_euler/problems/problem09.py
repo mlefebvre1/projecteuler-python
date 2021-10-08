@@ -1,6 +1,6 @@
 from project_euler.geometry.pythagorean import pythagorean_triples
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -17,7 +17,7 @@ def problem09():
     There exists exactly one Pythagorean triplet for which a + b + c = 1000.
     Find the product abc.
     """
-    triples = list(pythagorean_triples(1000))
+    triples = list(pythagorean_triples(2000))
     ans = 0
     for triple in triples:
         if sum(triple) == 1000:

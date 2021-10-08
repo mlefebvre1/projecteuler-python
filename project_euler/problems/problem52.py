@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def digit_uniqueness(n: int) -> bool:
@@ -39,4 +39,5 @@ def problem52():
                 return n
 
 
-problem52()
+if __name__ == "__main__":
+    problem52()

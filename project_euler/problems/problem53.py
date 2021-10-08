@@ -1,6 +1,6 @@
 from math import factorial
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_combinatorics():
@@ -32,4 +32,5 @@ def problem53():
     return len(list(combinatorics_greater_than_target))
 
 
-problem53()
+if __name__ == "__main__":
+    problem53()

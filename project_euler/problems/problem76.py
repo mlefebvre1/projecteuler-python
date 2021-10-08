@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -30,4 +30,5 @@ def problem76():
     return nb_ways[max_n]
 
 
-problem76()
+if __name__ == "__main__":
+    problem76()

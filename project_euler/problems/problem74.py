@@ -1,7 +1,7 @@
 from functools import reduce
 from math import factorial
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 chain_map = [0] * (6 * factorial(9) + 1)  # worst case is the starting number 999999
 factorials = [factorial(n) for n in range(10)]
@@ -75,4 +75,5 @@ def problem74():
     return cnt
 
 
-problem74()
+if __name__ == "__main__":
+    problem74()

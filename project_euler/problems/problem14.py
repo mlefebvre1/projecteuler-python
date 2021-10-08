@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def chain(n: int) -> int:
@@ -47,4 +47,5 @@ def problem14():
     return max_n
 
 
-problem14()
+if __name__ == "__main__":
+    problem14()

@@ -1,8 +1,8 @@
-from typing import Iterable
+from typing import Iterator
 
-from project_euler.number_theory.primes import is_prime
+from ..number_theory.primes import is_prime
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def quadratic_consecutive_primes(a: int, b: int) -> int:
@@ -20,9 +20,9 @@ def quadratic_consecutive_primes(a: int, b: int) -> int:
 
 def generate_quadratic_consecutive_primes(
     lowerbound: int, upperbound: int
-) -> Iterable[int]:
-    for a in range(-lowerbound, upperbound):
-        for b in range(-lowerbound, upperbound):
+) -> Iterator[int]:
+    for a in range(lowerbound, upperbound):
+        for b in range(lowerbound, upperbound):
             yield quadratic_consecutive_primes(a, b), a, b
 
 
@@ -58,4 +58,5 @@ def problem27():
     return a * b
 
 
-problem27()
+if __name__ == "__main__":
+    problem27()

@@ -1,6 +1,6 @@
 from math import ceil, gcd
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -36,4 +36,5 @@ def problem73():
     return nb_fractions
 
 
-problem73()
+if __name__ == "__main__":
+    problem73()

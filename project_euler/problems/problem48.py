@@ -1,6 +1,6 @@
 from functools import reduce
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -19,4 +19,5 @@ def problem48():
     return reduce(lambda sum_, n: (sum_ + pow(n, n) % m) % m, range(1, k + 1), 0)
 
 
-problem48()
+if __name__ == "__main__":
+    problem48()

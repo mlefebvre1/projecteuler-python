@@ -1,6 +1,6 @@
 from project_euler.geometry.pythagorean import pythagorean_triples
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -23,4 +23,5 @@ def problem39():
     return perimeters.index(max(perimeters))
 
 
-problem39()
+if __name__ == "__main__":
+    problem39()

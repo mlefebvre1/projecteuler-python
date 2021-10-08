@@ -1,9 +1,9 @@
 from math import sqrt
 from typing import Iterator, Tuple
 
-from project_euler.number_theory.primes import sieves
+from ..number_theory.primes import sieves
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_phi_from_2_primes() -> Iterator[Tuple[int, int]]:
@@ -48,4 +48,5 @@ def problem70():
     return min(ratios, key=lambda x: x[1])[0]
 
 
-problem70()
+if __name__ == "__main__":
+    problem70()

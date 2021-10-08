@@ -1,9 +1,9 @@
 import itertools
 from typing import List
 
-from project_euler.number_theory.primes import sieves
+from ..number_theory.primes import sieves
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def is_sub_string_divisible(n: str, primes: List[int]) -> bool:
@@ -51,4 +51,5 @@ def problem43():
     return sum(sub_string_divisibles_int)
 
 
-problem43()
+if __name__ == "__main__":
+    problem43()

@@ -1,6 +1,6 @@
 from pandas import read_csv
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 from pathlib import Path
 
 

@@ -1,9 +1,9 @@
 from functools import reduce
 from typing import List, Iterable
-
+from pathlib import Path
 from project_euler.geometry.geometry import triangular
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_triangles(max_: int) -> List[int]:
@@ -42,7 +42,7 @@ def problem42():
     Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common
     English words, how many are triangle words?
     """
-    with open("data/problem42.txt", "r") as fp:
+    with open(f"{Path(__file__).parent}/data/problem42.txt", "r") as fp:
         words = str(fp.read()).split(",")
         fp.close()
 
@@ -54,4 +54,5 @@ def problem42():
     )
 
 
-problem42()
+if __name__ == "__main__":
+    problem42()

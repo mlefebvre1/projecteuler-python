@@ -1,6 +1,6 @@
 from project_euler.geometry.pythagorean import pythagorean_triples
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -37,4 +37,5 @@ def problem75():
     return sum(L_cnt_singular)
 
 
-problem75()
+if __name__ == "__main__":
+    problem75()

@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Iterator, List, DefaultDict
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def cubics_generator() -> Iterator[int]:
@@ -74,4 +74,5 @@ def problem62():
             return min(candidates)
 
 
-problem62()
+if __name__ == "__main__":
+    problem62()

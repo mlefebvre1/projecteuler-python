@@ -1,10 +1,11 @@
-import project_euler.utils.poker as poker
-from project_euler.utils.timeit import timeit
+from pathlib import Path
+from ..utils import poker
+from ..utils.timeit import timeit
 
 
 @timeit
 def problem54():
-    with open("data/problem54.txt", "r") as fp:
+    with open(f"{Path(__file__).parent}/data/problem54.txt", "r") as fp:
         games = fp.read().splitlines()
         fp.close()
 
@@ -17,4 +18,5 @@ def problem54():
     return nb_win_player1
 
 
-problem54()
+if __name__ == "__main__":
+    problem54()

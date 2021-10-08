@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def month_nb_days(month_index: int, year: int) -> int:
@@ -50,4 +50,5 @@ def problem19():
     return nb_sundays
 
 
-problem19()
+if __name__ == "__main__":
+    problem19()

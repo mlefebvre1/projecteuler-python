@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import Iterable
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_fifth_powers(max_n: int) -> Iterable[int]:
@@ -36,4 +36,5 @@ def problem30():
     return reduce(lambda total, solution: total + solution[1], solutions, 0)
 
 
-problem30()
+if __name__ == "__main__":
+    problem30()

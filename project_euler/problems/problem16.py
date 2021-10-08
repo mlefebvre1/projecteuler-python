@@ -1,6 +1,6 @@
 from functools import reduce
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -21,4 +21,5 @@ def problem16():
     return digit_sum
 
 
-problem16()
+if __name__ == "__main__":
+    problem16()

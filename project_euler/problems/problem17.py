@@ -1,4 +1,4 @@
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 numbers_0_to_10 = [
     "zero",
@@ -96,4 +96,5 @@ def problem17():
     return nb_letters
 
 
-problem17()
+if __name__ == "__main__":
+    problem17()

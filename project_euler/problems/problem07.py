@@ -1,6 +1,6 @@
-from project_euler.number_theory.primes import sieves
+from ..number_theory.primes import sieves
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit

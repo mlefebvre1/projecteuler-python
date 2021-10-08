@@ -1,8 +1,8 @@
 from typing import List
 
-from project_euler.number_theory.primes import distinct_primes_fast, sieves
+from ..number_theory.primes import distinct_primes_fast, sieves
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def make_distinct_primes(n: int, primes: List[int]) -> List[int]:
@@ -48,4 +48,5 @@ def problem47():
     return consecutive_integers[0]
 
 
-problem47()
+if __name__ == "__main__":
+    problem47()

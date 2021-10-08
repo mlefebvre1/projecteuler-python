@@ -1,9 +1,9 @@
 import itertools
 from typing import Set, Iterable, List
 
-from project_euler.number_theory.primes import sieves, is_prime
+from ..number_theory.primes import sieves, is_prime
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def generate_candidates(primes: Iterable[int]) -> Iterable[Set[int]]:
@@ -75,4 +75,5 @@ def problem49():
     return extract_the_correct_terms_and_concat(next(final_candidate))
 
 
-problem49()
+if __name__ == "__main__":
+    problem49()

@@ -2,7 +2,7 @@ from functools import reduce
 
 from project_euler.arithmetic.arithmetic import pandigital_validation
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 @timeit
@@ -44,4 +44,5 @@ def problem38():
     return best
 
 
-problem38()
+if __name__ == "__main__":
+    problem38()

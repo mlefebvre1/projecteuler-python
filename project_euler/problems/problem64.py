@@ -1,6 +1,6 @@
 from math import sqrt
 
-from project_euler.utils.timeit import timeit
+from ..utils.timeit import timeit
 
 
 def sqrt_cf_expansion_generator(n):
@@ -49,4 +49,5 @@ def problem64():
     return len(list(odd_period_sqrts))
 
 
-problem64()
+if __name__ == "__main__":
+    problem64()

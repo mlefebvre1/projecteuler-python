@@ -1,10 +1,10 @@
 from typing import List
-
-from project_euler.utils.timeit import timeit
+from pathlib import Path
+from ..utils.timeit import timeit
 
 
 def prepare_data() -> List[List[int]]:
-    with open("data/problem67.txt", "r") as file:
+    with open(f"{Path(__file__).parent}/data/problem67.txt", "r") as file:
         data = file.readlines()
     grid = []
     for line in data:
@@ -53,4 +53,5 @@ def problem67():
     return max_path
 
 
-problem67()
+if __name__ == "__main__":
+    problem67()
