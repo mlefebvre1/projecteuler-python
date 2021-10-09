@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from project_euler import problems
 from project_euler.problems import *
 from project_euler.utils.timeit import timeit
