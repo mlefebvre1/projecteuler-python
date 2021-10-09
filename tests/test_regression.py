@@ -1,7 +1,5 @@
 import pytest
-from typing import List
-from project_euler import problems
-from project_euler.problems import *
+import project_euler
 
 answers = [
     233168,
@@ -87,6 +85,6 @@ answers = [
 ]
 
 
-@pytest.mark.parametrize("problem, ans", zip(problems.__all__, answers))
+@pytest.mark.parametrize("problem, ans", zip(project_euler.problems.__all__, answers))
 def test_solve_all(problem, ans):
-    assert eval(f"{problem}.{problem}()") == ans
+    assert eval(f"project_euler.problems.{problem}.{problem}()") == ans

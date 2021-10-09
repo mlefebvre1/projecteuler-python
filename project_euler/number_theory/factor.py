@@ -1,5 +1,4 @@
 from math import ceil, sqrt
-from . import primes
 from typing import List
 
 
