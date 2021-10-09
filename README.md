@@ -11,7 +11,7 @@ https://projecteuler.net
 Install dependencies
 
  ```shell
-pip install -r requirements.txt
+pip install .
 ```
 
 Run regression tests
