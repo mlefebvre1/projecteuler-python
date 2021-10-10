@@ -1,8 +1,8 @@
 from math import pow, floor, log
 
-from ..number_theory.primes import sieves
+from project_euler.number_theory.primes import sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 @timeit

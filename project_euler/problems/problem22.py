@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import List
 from pathlib import Path
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_name_score(names: List[str]) -> List[int]:

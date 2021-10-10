@@ -1,9 +1,9 @@
 from typing import Iterable
 
 from project_euler.arithmetic.arithmetic import decimal_recurring_len
-from ..number_theory.primes import sieves
+from project_euler.number_theory.primes import sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_reciprocal_len(limit_d: int) -> Iterable[int]:

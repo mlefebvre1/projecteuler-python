@@ -2,7 +2,7 @@ from functools import reduce
 
 from project_euler.arithmetic.arithmetic import pandigital_validation
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 @timeit

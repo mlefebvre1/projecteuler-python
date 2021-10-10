@@ -1,9 +1,9 @@
 from math import sqrt
 
-from ..number_theory.factor import factorize
-from ..number_theory.primes import sieves
+from project_euler.number_theory.factor import factorize
+from project_euler.number_theory.primes import sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def root(a: int, b: int, c: int) -> float:

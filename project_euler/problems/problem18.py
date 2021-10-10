@@ -1,6 +1,6 @@
 from typing import List
 from pathlib import Path
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def prepare_data() -> List[List[int]]:

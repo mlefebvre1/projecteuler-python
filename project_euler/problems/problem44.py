@@ -2,7 +2,7 @@ from typing import List
 
 from project_euler.geometry.geometry import pentagonal
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_cache_is_pentagonal(max_n: int, pentagonals: List[int]) -> List[bool]:

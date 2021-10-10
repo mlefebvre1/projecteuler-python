@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import Iterable
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_digit_sum() -> Iterable[int]:

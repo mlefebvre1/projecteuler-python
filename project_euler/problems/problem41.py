@@ -1,9 +1,9 @@
 import itertools
 from typing import Iterable
 
-from ..number_theory.primes import is_prime
+from project_euler.number_theory.primes import is_prime
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_candidates() -> Iterable[int]:

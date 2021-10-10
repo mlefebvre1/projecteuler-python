@@ -1,6 +1,6 @@
 from project_euler.geometry.geometry import is_pentagonal, is_hexagonal, triangular
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 @timeit

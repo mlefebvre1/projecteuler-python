@@ -1,8 +1,8 @@
 from typing import List, Set
 
-from ..number_theory.primes import sieves, is_prime
+from project_euler.number_theory.primes import sieves, is_prime
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def make_twice_a_square_list(max_n: int) -> List[int]:

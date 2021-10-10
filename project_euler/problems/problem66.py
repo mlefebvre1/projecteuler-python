@@ -1,7 +1,7 @@
 from math import sqrt, ceil
 from typing import List, Iterator, Tuple
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def matrix2x2_mult(A: List[List[int]], B: List[List[int]]) -> List[List[int]]:

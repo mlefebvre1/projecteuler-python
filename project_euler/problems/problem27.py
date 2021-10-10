@@ -1,8 +1,8 @@
 from typing import Iterator
 
-from ..number_theory.primes import is_prime
+from project_euler.number_theory.primes import is_prime
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def quadratic_consecutive_primes(a: int, b: int) -> int:

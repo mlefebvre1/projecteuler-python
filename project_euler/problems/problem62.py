@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Iterator, List, DefaultDict
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def cubics_generator() -> Iterator[int]:

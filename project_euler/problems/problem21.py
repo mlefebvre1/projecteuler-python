@@ -1,6 +1,6 @@
-from ..number_theory.factor import proper_divisors_sum
+from project_euler.number_theory.factor import proper_divisors_sum
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 @timeit

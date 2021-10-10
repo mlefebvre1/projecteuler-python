@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import List
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def make_distinct_primes_by_n(max_n: int) -> List[List[int]]:

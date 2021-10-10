@@ -1,8 +1,8 @@
 from typing import List
 
-from ..number_theory.primes import distinct_primes_fast, sieves
+from project_euler.number_theory.primes import distinct_primes_fast, sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def make_distinct_primes(n: int, primes: List[int]) -> List[int]:

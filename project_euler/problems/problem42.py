@@ -3,7 +3,7 @@ from typing import List, Iterable
 from pathlib import Path
 from project_euler.geometry.geometry import triangular
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_triangles(max_: int) -> List[int]:

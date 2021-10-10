@@ -1,6 +1,6 @@
 from typing import Iterator, List
 from pathlib import Path
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_digit_candidates(logins: List[str]) -> Iterator[str]:

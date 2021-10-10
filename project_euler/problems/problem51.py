@@ -1,10 +1,10 @@
 from functools import reduce
 from typing import Iterable
 
-from ..arithmetic.arithmetic import generate_binary_strings_n_digits
-from ..number_theory.primes import is_prime
+from project_euler.arithmetic.arithmetic import generate_binary_strings_n_digits
+from project_euler.number_theory.primes import is_prime
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def make_number(i_: int, j_: int, s_: int, binary_string_: str) -> int:

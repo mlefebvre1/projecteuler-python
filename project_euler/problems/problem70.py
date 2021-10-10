@@ -1,9 +1,9 @@
 from math import sqrt
 from typing import Iterator, Tuple
 
-from ..number_theory.primes import sieves
+from project_euler.number_theory.primes import sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_phi_from_2_primes() -> Iterator[Tuple[int, int]]:

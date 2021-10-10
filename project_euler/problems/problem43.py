@@ -1,9 +1,9 @@
 import itertools
 from typing import List
 
-from ..number_theory.primes import sieves
+from project_euler.number_theory.primes import sieves
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def is_sub_string_divisible(n: str, primes: List[int]) -> bool:

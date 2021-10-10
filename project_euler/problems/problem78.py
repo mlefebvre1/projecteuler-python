@@ -2,7 +2,7 @@ from typing import Iterator, List
 
 from project_euler.geometry.geometry import triangular
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generalized_pentagonal_number_generator() -> Iterator[int]:

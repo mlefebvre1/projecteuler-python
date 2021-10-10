@@ -2,7 +2,7 @@ from functools import reduce
 from math import factorial
 from typing import Iterable
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def generate_curious_number(max_n: int) -> Iterable[int]:

@@ -1,4 +1,4 @@
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 @timeit

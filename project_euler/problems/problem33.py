@@ -1,7 +1,7 @@
 from math import gcd
 from typing import Iterable
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def is_non_trivial_two_digits_curious_fraction(

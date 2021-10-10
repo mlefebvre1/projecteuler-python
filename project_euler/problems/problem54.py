@@ -1,6 +1,6 @@
 from pathlib import Path
-from ..utils import poker
-from ..utils.timeit import timeit
+from project_euler.utils import poker
+from project_euler.utils.timeit import timeit
 
 
 @timeit

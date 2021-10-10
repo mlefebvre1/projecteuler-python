@@ -2,7 +2,7 @@ from typing import List
 
 import project_euler.geometry.geometry as geometry
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def make_polygonals() -> List[List[int]]:

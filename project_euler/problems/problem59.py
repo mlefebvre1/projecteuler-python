@@ -2,7 +2,7 @@ from pathlib import Path
 from functools import reduce
 from typing import List, Iterable
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def seperate_cipher_into_3_streams(cipher: List[str]) -> List[List[str]]:

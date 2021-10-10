@@ -1,6 +1,6 @@
 from math import sqrt
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def sqrt_cf_expansion_generator(n):

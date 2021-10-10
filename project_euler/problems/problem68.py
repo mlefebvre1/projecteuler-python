@@ -1,7 +1,7 @@
 from itertools import permutations
 from typing import List, Iterator, Tuple
 
-from ..utils.timeit import timeit
+from project_euler.utils.timeit import timeit
 
 
 def is_all_arms_sum_equal(gon_ring: List[Tuple[int, int, int]]) -> bool:
