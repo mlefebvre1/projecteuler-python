@@ -30,7 +30,6 @@ def problem22():
         fp_data = fp.read()
         fp.close()
     names = sorted(fp_data.split(","))
-    print(len(names))
     names = [name.replace('"', "") for name in names]
     names_score = sum(generate_name_score(names))
     return names_score
