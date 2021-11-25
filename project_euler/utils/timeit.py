@@ -9,7 +9,7 @@ def timeit(func):
         result = func(*args, **kwargs)
         end = time.time()
         print(
-            f"{func.__name__} : the solution is {result}. The execution took : {end - start}"
+            f"{func.__name__} : the solution is {result}. The execution took : {end - start} seconds"
         )
         return result
 

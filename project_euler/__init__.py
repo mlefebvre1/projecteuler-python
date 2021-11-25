@@ -1,3 +1,4 @@
-from .problems import *
+from . import utils
+from .problems import *  # noqa
 
-__all__ = ["problems", "utils"]
+__all__ = ["utils"]

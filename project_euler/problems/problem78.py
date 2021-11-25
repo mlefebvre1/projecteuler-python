@@ -6,7 +6,7 @@ from project_euler.utils.timeit import timeit
 
 
 def generalized_pentagonal_number_generator() -> Iterator[int]:
-    pn, tn_1 = 0, 0
+    pn = 0
     n = 1
     while True:
         yield pn

@@ -12,7 +12,7 @@ def problem01():
     Find the sum of all the multiples of 3 or 5 below 1000.
     """
     max_n = 1000
-    multipliers = [3, 5]
+    multipliers = (3, 5)
     multiples = set()
     for multiplier in multipliers:
         n = multiplier

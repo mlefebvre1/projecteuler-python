@@ -8,7 +8,7 @@ from project_euler.utils.timeit import timeit
 def make_distinct_primes(n: int, primes: List[int]) -> List[int]:
     try:
         distinct_primes = list(distinct_primes_fast(n, primes))
-    except:
+    except Exception:
         distinct_primes = []
     return distinct_primes
 
