@@ -1,5 +1,7 @@
 # ProjectEuler-Python
 
+![project status](https://github.com/github/docs/actions/workflows/python-app.yml/badge.svg)
+
 #### Solve the first 100 problems from Project Euler in python
 
 https://projecteuler.net
