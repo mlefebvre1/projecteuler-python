@@ -1,8 +1,6 @@
 from project_euler.utils.timeit import timeit
-import pandas as pd
-import numpy as np
+from numpy import array, genfromtxt
 from pathlib import Path
-from project_euler.graph.dgraph import DGraph, dijkstra_shortest_path
 
 
 @timeit
@@ -17,13 +15,44 @@ def problem81() -> int:
 
     Find the minimal path sum from the top left to the bottom right by only moving right and down
     in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix.
-    """
-    matrix = np.array(
-        pd.read_csv(Path(__file__).parent / "data/problem81.txt", header=None)
+
+    The original solution was using dijkstra shortest path algorithm. But it turns out it was much slower than
+    the matrix dynamic programming solution.
+
+    Code using dijsktra_shortest_path :
+
+    matrix = array(
+        genfromtxt(
+            Path(__file__).parent / "data/problem81.txt",
+            delimiter=",",
+            skip_header=False,
+            dtype=int,
+        )
     )
     graph = DGraph.make_from_matrix_down_right_only(matrix)
-    dist, _ = dijkstra_shortest_path(graph, 0)
-    return dist[len(graph) - 1] + matrix[0][0]
+    dist = dijkstra_shortest_path(graph, source=0, dst=len(graph) - 1)
+    return dist + matrix[0][0]
+    """
+    matrix = array(
+        genfromtxt(
+            Path(__file__).parent / "data/problem81.txt",
+            delimiter=",",
+            skip_header=False,
+            dtype=int,
+        )
+    )
+    x_len, y_len = matrix.shape
+    for y in range(y_len):
+        for x in range(x_len):
+            if x == 0 and y == 0:
+                continue
+            elif y == 0:
+                matrix[y][x] += matrix[y][x - 1]
+            elif x == 0:
+                matrix[y][x] += matrix[y - 1][x]
+            else:
+                matrix[y][x] += min(matrix[y][x - 1], matrix[y - 1][x])
+    return matrix[y_len - 1][x_len - 1]
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 from __future__ import annotations
 import numpy as np
 import numpy.typing as npt
+from contextlib import suppress
 
 
 class DGraph:
@@ -9,6 +10,12 @@ class DGraph:
 
     def __len__(self) -> int:
         return self.vertices.shape[0]
+
+    def __str__(self) -> str:
+        ret = ""
+        for id, v in enumerate(self.vertices):
+            ret += f"Vertex {id} --> connected vertices : {v}\n"
+        return ret
 
     def add_edge(self, vertex_id: int, edges):
         """
@@ -33,27 +40,68 @@ class DGraph:
         )  # exclude last vertex because it has no connections anyway..
         x_len, y_len = matrix.shape
         for vertex_id in range(len(graph.vertices) - 1):
-            # for vertex_id, _ in enumerate(graph.vertices):
             x, y = vertex_id % x_len, vertex_id // x_len
+
+            v_right, v_down = (
+                vertex_id + 1,
+                vertex_id + x_len,
+            )
+            with suppress(IndexError):
+                w_right = matrix[y][x + 1]
+            with suppress(IndexError):
+                w_down = matrix[y + 1][x]
+
             if y == (y_len - 1) and x == (x_len - 1):
                 continue
             elif y == (y_len - 1):  # last line only has right connections
-                n1 = vertex_id + 1
-                v1 = matrix[y][x + 1]
-                graph.add_edge(vertex_id, {n1: v1})
+                graph.add_edge(vertex_id, {v_right: w_right})
             elif x == (x_len - 1):  # last column only has down connections
-                n2 = vertex_id + x_len
-                v2 = matrix[y + 1][x]
-                graph.add_edge(vertex_id, {n2: v2})
+                graph.add_edge(vertex_id, {v_down: w_down})
             else:
-                n1, n2 = vertex_id + 1, vertex_id + x_len
-                v1, v2 = matrix[y][x + 1], matrix[y + 1][x]
-                graph.add_edge(vertex_id, {n1: v1, n2: v2})
+                graph.add_edge(vertex_id, {v_right: w_right, v_down: w_down})
+
+        return graph
+
+    @classmethod
+    def make_from_matrix_up_down_right_only(cls, matrix: npt.NDArray) -> DGraph:
+        """Create a graph from a matrix of edges. Only up, down and right connections are allowed"""
+        graph = DGraph(
+            nb_vertices=(matrix.size)
+        )  # exclude last vertex because it has no connections anyway..
+        x_len, y_len = matrix.shape
+        for vertex_id in range(len(graph.vertices) - 1):
+            x, y = vertex_id % x_len, vertex_id // x_len
+
+            v_right, v_down, v_up = (
+                vertex_id + 1,
+                vertex_id + x_len,
+                vertex_id - x_len,
+            )
+            with suppress(IndexError):
+                w_right = matrix[y][x + 1]
+            with suppress(IndexError):
+                w_down = matrix[y + 1][x]
+            with suppress(IndexError):
+                w_up = matrix[y - 1][x]
+
+            if y == (y_len - 1) and x == (x_len - 1):
+                continue
+            elif y == (y_len - 1):  # last line
+                graph.add_edge(vertex_id, {v_right: w_right, v_up: w_up})
+            elif x == (x_len - 1):  # last column.. can't go right
+                if y == 0:  # first line.. can't go up
+                    graph.add_edge(vertex_id, {v_down: w_down})
+                else:
+                    graph.add_edge(vertex_id, {v_down: w_down, v_up: w_up})
+            else:
+                graph.add_edge(
+                    vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up}
+                )
 
         return graph
 
 
-def dijkstra_shortest_path(graph: DGraph, source: int) -> int:
+def dijkstra_shortest_path(graph: DGraph, src: int, dst: int) -> int:
     def min_dist(dist, visited):
         min_dist, min_vertex_id = float("inf"), None
         for _vertex_id, vertex_dist in enumerate(dist):
@@ -66,14 +114,16 @@ def dijkstra_shortest_path(graph: DGraph, source: int) -> int:
     prev = [None] * len(graph)
     visited = [False] * len(graph)
 
-    dist[source] = 0
+    dist[src] = 0
 
     while True:
         cur_vertex_id = min_dist(dist, visited)
-        if (
-            graph.vertices[cur_vertex_id] is None
-        ):  # len(graph.vertices[cur_vertex_id]) == 0:
+        if graph.vertices[cur_vertex_id] is None:
             break
+            # if (
+            #     graph.vertices[cur_vertex_id] is None
+            # ):  # len(graph.vertices[cur_vertex_id]) == 0:
+            # break
         visited[cur_vertex_id] = True
         for next_vertex_id, weight in graph.vertices[cur_vertex_id].items():
             new_dist = dist[cur_vertex_id] + weight
@@ -81,4 +131,16 @@ def dijkstra_shortest_path(graph: DGraph, source: int) -> int:
                 dist[next_vertex_id] = new_dist
                 prev[next_vertex_id] = cur_vertex_id
 
-    return dist, prev
+    return dist[dst]
+
+
+def dfs(graph: DGraph, src: int, dst: int):
+    def recursive(vertex_id: int, dist):
+        # print(f"visiting vertex {vertex_id}")
+        if vertex_id == dst:
+            yield dist
+            return
+        for next_vertex_id, weight in graph.vertices[vertex_id].items():
+            yield from recursive(next_vertex_id, dist + weight)
+
+    return min(recursive(src, 0))
