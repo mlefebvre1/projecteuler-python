@@ -80,4 +80,5 @@ __all__ = [
     "problem79",
     "problem80",
     "problem81",
+    "problem82",
 ]
