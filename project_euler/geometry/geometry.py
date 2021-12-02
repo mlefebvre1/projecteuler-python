@@ -1,9 +1,16 @@
 from math import sqrt
-from typing import Tuple
+from typing import Iterator, Tuple
 
 
 def triangular(n: int) -> int:
     return int(n * (n + 1) / 2)
+
+
+def infinite_triangle_generator() -> Iterator[int]:
+    n = 0
+    while True:
+        yield n * (n + 1) // 2
+        n += 1
 
 
 def square(n: int) -> int:
