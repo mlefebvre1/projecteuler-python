@@ -100,6 +100,62 @@ class DGraph:
 
         return graph
 
+    @classmethod
+    def make_from_matrix_up_down_right_left(cls, matrix: npt.NDArray) -> DGraph:
+        """Create a graph from a matrix of edges. Only up, down and right connections are allowed"""
+        graph = DGraph(
+            nb_vertices=(matrix.size)
+        )  # exclude last vertex because it has no connections anyway..
+        x_len, y_len = matrix.shape
+        for vertex_id in range(len(graph.vertices) - 1):
+            x, y = vertex_id % x_len, vertex_id // x_len
+
+            v_right = vertex_id + 1
+            v_left = vertex_id - 1
+            v_down = vertex_id + x_len
+            v_up = vertex_id - x_len
+
+            with suppress(IndexError):
+                w_right = matrix[y][x + 1]
+            with suppress(IndexError):
+                w_left = matrix[y][x - 1]
+            with suppress(IndexError):
+                w_down = matrix[y + 1][x]
+            with suppress(IndexError):
+                w_up = matrix[y - 1][x]
+
+            if y == 0:
+                if x == 0:
+                    graph.add_edge(vertex_id, {v_right: w_right, v_down: w_down})
+                elif x == x_len - 1:
+                    graph.add_edge(vertex_id, {v_left: w_left, v_down: w_down})
+                else:
+                    graph.add_edge(
+                        vertex_id, {v_right: w_right, v_left: w_left, v_down: w_down}
+                    )
+            elif y == (y_len - 1):  # last line
+                if x == 0:
+                    graph.add_edge(vertex_id, {v_right: w_right, v_up: w_up})
+                elif x == x_len - 1:
+                    continue
+                else:
+                    graph.add_edge(
+                        vertex_id, {v_right: w_right, v_left: w_left, v_up: w_up}
+                    )
+            elif x == 0:
+                graph.add_edge(
+                    vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up}
+                )
+            elif x == (x_len - 1):  # last column.. can't go right
+                graph.add_edge(vertex_id, {v_left: w_left, v_down: w_down, v_up: w_up})
+            else:
+                graph.add_edge(
+                    vertex_id,
+                    {v_right: w_right, v_left: w_left, v_down: w_down, v_up: w_up},
+                )
+
+        return graph
+
 
 def dijkstra_shortest_path(graph: DGraph, src: int, dst: int) -> int:
     def min_dist(dist, visited):
@@ -120,10 +176,6 @@ def dijkstra_shortest_path(graph: DGraph, src: int, dst: int) -> int:
         cur_vertex_id = min_dist(dist, visited)
         if graph.vertices[cur_vertex_id] is None:
             break
-            # if (
-            #     graph.vertices[cur_vertex_id] is None
-            # ):  # len(graph.vertices[cur_vertex_id]) == 0:
-            # break
         visited[cur_vertex_id] = True
         for next_vertex_id, weight in graph.vertices[cur_vertex_id].items():
             new_dist = dist[cur_vertex_id] + weight
@@ -132,15 +184,3 @@ def dijkstra_shortest_path(graph: DGraph, src: int, dst: int) -> int:
                 prev[next_vertex_id] = cur_vertex_id
 
     return dist[dst]
-
-
-def dfs(graph: DGraph, src: int, dst: int):
-    def recursive(vertex_id: int, dist):
-        # print(f"visiting vertex {vertex_id}")
-        if vertex_id == dst:
-            yield dist
-            return
-        for next_vertex_id, weight in graph.vertices[vertex_id].items():
-            yield from recursive(next_vertex_id, dist + weight)
-
-    return min(recursive(src, 0))
