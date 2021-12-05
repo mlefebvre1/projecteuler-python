@@ -13,6 +13,8 @@ def primitive_pythagorean_triples(k: int) -> Iterable[Tuple[int, int, int]]:
             if gcd(n, m) == 1 and m != n and (m + n) % 2:
                 a = m * m - n * n
                 b = 2 * m * n
+                if b < a:
+                    a, b = b, a
                 c = m * m + n * n
                 yield a, b, c
 
@@ -37,8 +39,11 @@ def pythagorean_triples(k: int, stop="hypotenuse") -> Iterable[Tuple[int, int, i
         while 1:
             a, b, c = primitive
             am, bm, cm = a * m, b * m, c * m
-            stop_criteria = cm if stop == "hypotenuse" else am, bm, cm
-            if sum(stop_criteria) > k:
-                break
+            if stop == "hypotenuse":
+                if cm > k:
+                    break
+            else:
+                if sum((am, bm, cm)) > k:
+                    break
             yield am, bm, cm
             m += 1
