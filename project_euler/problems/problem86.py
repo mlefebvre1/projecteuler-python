@@ -55,4 +55,5 @@ def problem86() -> int:
         nb += 1
 
 
-problem86()
+if __name__ == "__main__":
+    problem86()
