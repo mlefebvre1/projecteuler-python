@@ -96,4 +96,5 @@ __all__ = [
     "problem95",
     "problem96",
     "problem97",
+    "problem98",
 ]
