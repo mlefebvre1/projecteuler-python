@@ -16,7 +16,7 @@ Install dependencies
 pip install .
 ```
 
-Run regression tests
+Run regression tests (runs all the problems and validate the answers)
 
 ```shell
 pytest
