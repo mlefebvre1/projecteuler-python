@@ -9,7 +9,7 @@ def generate_binary_strings_up_to_n(n: int) -> Iterable[str]:
 
 
 def generate_binary_strings_n_digits(size: int) -> Iterable[str]:
-    for i in range(2 ** size):
+    for i in range(2**size):
         yield format(i, "b").zfill(size)
 
 

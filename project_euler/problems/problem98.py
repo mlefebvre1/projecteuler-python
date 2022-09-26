@@ -29,7 +29,7 @@ def get_square_candidates(nb_digits):
         return True
 
     squared_candidates = []
-    categories = get_squared(10 ** nb_digits)
+    categories = get_squared(10**nb_digits)
     for category in categories:
         for n in category:
             if digit_validate(n, nb_digits):

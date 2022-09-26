@@ -7,7 +7,7 @@ from project_euler.utils.timeit import timeit
 def generate_digit_sum() -> Iterable[int]:
     for a in range(100):
         for b in range(100):
-            yield reduce(lambda sum_, digit: sum_ + int(digit), str(a ** b), 0)
+            yield reduce(lambda sum_, digit: sum_ + int(digit), str(a**b), 0)
 
 
 @timeit

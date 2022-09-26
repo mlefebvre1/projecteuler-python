@@ -29,7 +29,7 @@ def problem87() -> int:
     for prime2 in primes_pow2:
         for prime3 in primes_pow3:
             for prime4 in primes_pow4:
-                sum_ = prime2 ** 2 + prime3 ** 3 + prime4 ** 4
+                sum_ = prime2**2 + prime3**3 + prime4**4
                 if (
                     sum_ <= k and mem[sum_] == 0
                 ):  # make sure the sum was not written yet

@@ -16,9 +16,9 @@ def base_n_expr(max_n, base):
     yield digits.copy()
     for n in range(1, max_n):
         for dim in range(nb_dim):
-            if n % base ** dim == 0:
+            if n % base**dim == 0:
                 digits[(nb_dim - 1) - dim] = next_bit(digits[(nb_dim - 1) - dim], base)
-            if base ** dim > n:
+            if base**dim > n:
                 break
         yield digits.copy()
 

@@ -6,7 +6,7 @@ from project_euler.utils.timeit import timeit
 
 def generate_fifth_powers(max_n: int) -> Iterable[int]:
     _EXP = 5
-    _POWER = [n ** _EXP for n in range(0, 10)]
+    _POWER = [n**_EXP for n in range(0, 10)]
     for n in range(2, max_n):
         sum_ = reduce(lambda total, digit: total + _POWER[int(digit)], str(n), 0)
         yield sum_, n

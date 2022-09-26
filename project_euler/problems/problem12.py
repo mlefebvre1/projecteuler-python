@@ -7,7 +7,7 @@ from project_euler.utils.timeit import timeit
 
 
 def root(a: int, b: int, c: int) -> float:
-    return (-b + sqrt(b ** 2 - 4 * a * c)) / (2 * a)
+    return (-b + sqrt(b**2 - 4 * a * c)) / (2 * a)
 
 
 def t(n: int) -> float:

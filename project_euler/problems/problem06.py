@@ -24,7 +24,7 @@ def problem06():
     for n in range(max_n + 1):
         sum_of_square += n * n
         square_of_sum += n
-    square_of_sum = square_of_sum ** 2
+    square_of_sum = square_of_sum**2
     return square_of_sum - sum_of_square
 
 

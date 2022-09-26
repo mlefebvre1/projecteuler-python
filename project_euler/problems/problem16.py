@@ -16,7 +16,7 @@ def problem16():
     I guess it's too easy in python..
     """
     exp = 1000
-    d = 2 ** exp
+    d = 2**exp
     digit_sum = reduce(lambda sum_, digit: sum_ + int(digit), str(d), 0)
     return digit_sum
 

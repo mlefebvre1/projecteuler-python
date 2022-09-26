@@ -73,7 +73,7 @@ def problem51():
                 i_nb_digits = reduce(
                     lambda tot, x: tot + 1 if x == "0" else tot, binary_string, 0
                 )
-                for i in range(int(10 ** (i_nb_digits - 1)), int(10 ** i_nb_digits)):
+                for i in range(int(10 ** (i_nb_digits - 1)), int(10**i_nb_digits)):
                     combination_values = generate_combination_values(
                         i, j, binary_string
                     )

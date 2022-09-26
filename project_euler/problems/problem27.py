@@ -8,7 +8,7 @@ from project_euler.utils.timeit import timeit
 def quadratic_consecutive_primes(a: int, b: int) -> int:
     n = 0
     while 1:
-        s = n ** 2 + a * n + b
+        s = n**2 + a * n + b
         if s % 2:
             if not is_prime(s):
                 break

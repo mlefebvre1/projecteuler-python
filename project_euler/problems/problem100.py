@@ -35,7 +35,7 @@ def problem100():
     while 1:
         nb_blue_disk = floor(nb_disk_total / sqrt(2) + 1)
         if chance_is_50_50(nb_blue_disk, nb_disk_total):
-            if nb_disk_total > 10 ** 12:
+            if nb_disk_total > 10**12:
                 break
             ratio = nb_disk_total / nb_disk_total_previous  # Re-adjust the multiplier
             nb_disk_total_previous = nb_disk_total

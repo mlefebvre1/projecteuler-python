@@ -25,7 +25,7 @@ def problem29():
     distincts = []
     for a in range(2, max_a + 1):
         for b in range(2, max_b + 1):
-            term = a ** b
+            term = a**b
             if term not in distincts:
                 distincts.append(term)
     return len(distincts)

@@ -21,7 +21,7 @@ def problem63():
     """
     total = 0
     power = 1
-    while len(str(9 ** power)) == power:
+    while len(str(9**power)) == power:
         total += sum(generate_digit_power_match(power))
         power += 1
 
