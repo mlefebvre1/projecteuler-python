@@ -16,7 +16,7 @@ def problem03():
     """
 
     k = 600851475143
-    candidates = filter(lambda n: is_prime(n) and (k % n == 0), range(1, int(sqrt(k))))
+    candidates = filter(lambda n: (k % n == 0) and is_prime(n), range(1, int(sqrt(k))))
     return max(candidates)
 
 

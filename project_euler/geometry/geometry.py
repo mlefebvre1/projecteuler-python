@@ -3,7 +3,7 @@ from typing import Iterator, Tuple
 
 
 def triangular(n: int) -> int:
-    return int(n * (n + 1) / 2)
+    return n * (n + 1) // 2
 
 
 def infinite_triangle_generator() -> Iterator[int]:
@@ -14,23 +14,23 @@ def infinite_triangle_generator() -> Iterator[int]:
 
 
 def square(n: int) -> int:
-    return int(n ** 2)
+    return n**2
 
 
 def pentagonal(n: int) -> int:
-    return int(n * (3 * n - 1) / 2)
+    return n * (3 * n - 1) // 2
 
 
 def hexagonal(n: int) -> int:
-    return int(n * (2 * n - 1))
+    return n * (2 * n - 1)
 
 
 def heptagonal(n: int) -> int:
-    return int(n * (5 * n - 3) / 2)
+    return n * (5 * n - 3) // 2
 
 
 def octagonal(n: int) -> int:
-    return int(n * (3 * n - 2))
+    return n * (3 * n - 2)
 
 
 def is_triangular(n: int, tol=0.00000001) -> bool:

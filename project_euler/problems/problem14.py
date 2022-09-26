@@ -7,10 +7,10 @@ def chain(n: int) -> int:
         if (
             n % 2
         ):  # Skip a step since for an odd number : 3*n+1 always gives a even number
-            n = int((3 * n + 1) / 2)
+            n = (3 * n + 1) // 2
             chain_len += 2
         else:  # is even
-            n = int(n / 2)
+            n = n // 2
             chain_len += 1
     return chain_len
 
@@ -40,7 +40,7 @@ def problem14():
     max_chain = 0
     max_n = 0
     # We don't need to check anything below half of the candidates since chain(2*n) = 1 + chain(n)
-    for n in range(int(end / 2), end):
+    for n in range(end // 2, end):
         chain_len = chain(n)
         if chain_len > max_chain:
             max_chain, max_n = chain_len, n
