@@ -105,8 +105,6 @@ answers = {
 }
 
 
-@pytest.mark.parametrize(
-    "problem, ans", zip(project_euler.problems.__all__, answers.values())
-)
+@pytest.mark.parametrize("problem, ans", zip(project_euler.problems.__all__, answers.values()))
 def test_solve_all(problem, ans):
     assert eval(f"project_euler.problems.{problem}.{problem}()") == ans

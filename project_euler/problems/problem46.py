@@ -23,19 +23,12 @@ def make_conjecture_candidates(max_n: int) -> Set[int]:
     for prime in primes:
         for twice_a_square in twice_a_square_list:
             candidate = prime + twice_a_square
-            if (
-                (candidate % 2)
-                and not is_prime(candidate)
-                and candidate != 1
-                and candidate < max_n
-            ):
+            if (candidate % 2) and not is_prime(candidate) and candidate != 1 and candidate < max_n:
                 candidates.add(candidate)
     return candidates
 
 
-def make_conjecture_presence_list(
-    max_n: int, conjecture_candidates: Set[int]
-) -> List[bool]:
+def make_conjecture_presence_list(max_n: int, conjecture_candidates: Set[int]) -> List[bool]:
     conjecture_list = [False for _ in range(max_n)]
     for candidate in conjecture_candidates:
         conjecture_list[candidate] = True
@@ -63,18 +56,12 @@ def problem46():
     What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
     """
     max_n, ans = 10000, "not found"
-    conjecture_candidates = make_conjecture_candidates(
-        max_n
-    )  # right side of the equation
-    conjecture_presence_list = make_conjecture_presence_list(
-        max_n, conjecture_candidates
-    )
+    conjecture_candidates = make_conjecture_candidates(max_n)  # right side of the equation
+    conjecture_presence_list = make_conjecture_presence_list(max_n, conjecture_candidates)
     odd_composites = [
         True if n % 2 and not is_prime(n) and n != 1 else False for n in range(max_n)
     ]  # left side of the equation
-    for n, (conjecture, odd_composite) in enumerate(
-        zip(conjecture_presence_list, odd_composites)
-    ):
+    for n, (conjecture, odd_composite) in enumerate(zip(conjecture_presence_list, odd_composites)):
         if conjecture != odd_composite:
             ans = n
             break

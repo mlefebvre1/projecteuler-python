@@ -14,9 +14,7 @@ def is_all_arms_sum_equal(gon_ring: List[Tuple[int, int, int]]) -> bool:
         return True
 
 
-def is_first_node_the_smallest_external_node(
-    gon_ring: List[Tuple[int, int, int]]
-) -> bool:
+def is_first_node_the_smallest_external_node(gon_ring: List[Tuple[int, int, int]]) -> bool:
     external_nodes = [arm[0] for arm in gon_ring]
     return external_nodes.index(min(external_nodes)) == 0
 
@@ -53,14 +51,10 @@ def generate_solutions() -> Iterator[str]:
     """Produce 16 digit string solutions"""
     nodes = [1, 2, 3, 4, 5, 7, 8, 9, 10]
     nodes_permutations = permutations(nodes)
-    nodes_permutations_filtered = filter(
-        filter_permutation_with_10_on_inner_graph, nodes_permutations
-    )
+    nodes_permutations_filtered = filter(filter_permutation_with_10_on_inner_graph, nodes_permutations)
     for nodes_permutation in nodes_permutations_filtered:
         gon_ring = build_magic_gon_ring(nodes_permutation)
-        if is_all_arms_sum_equal(gon_ring) and is_first_node_the_smallest_external_node(
-            gon_ring
-        ):
+        if is_all_arms_sum_equal(gon_ring) and is_first_node_the_smallest_external_node(gon_ring):
             yield build_string_repr_from_gon_ring(gon_ring)
 
 

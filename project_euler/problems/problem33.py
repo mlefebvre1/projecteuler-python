@@ -4,9 +4,7 @@ from typing import Iterable
 from project_euler.utils.timeit import timeit
 
 
-def is_non_trivial_two_digits_curious_fraction(
-    numerator: int, denominator: int
-) -> bool:
+def is_non_trivial_two_digits_curious_fraction(numerator: int, denominator: int) -> bool:
     fraction = numerator / denominator
     simplified_fraction = 0.0
     numerator, denominator = str(numerator), str(denominator)

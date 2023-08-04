@@ -48,9 +48,7 @@ def count_base10(n: int) -> int:
         if str(n)[1] == "0":  # 20, 30, 40 .. etc.
             nb_letters += len(numbers_base_20_to_100[int(str(n)[0])])
         else:  # 21, 22.. 31, 32 .. 91.. 99
-            nb_letters += len(numbers_base_20_to_100[int(str(n)[0])]) + len(
-                numbers_0_to_10[int(str(n)[1])]
-            )
+            nb_letters += len(numbers_base_20_to_100[int(str(n)[0])]) + len(numbers_0_to_10[int(str(n)[1])])
     return nb_letters
 
 
@@ -64,9 +62,7 @@ def count_letters(n: int) -> int:
         if base10 == 0:  # 100, 200, 300 .. etc.
             nb_letters += len(numbers_0_to_10[int(base100)]) + len("hundred")
         else:  # 101, 102 .. etc.
-            nb_letters += (
-                len(numbers_0_to_10[int(base100)]) + len("hundred") + len("and")
-            )
+            nb_letters += len(numbers_0_to_10[int(base100)]) + len("hundred") + len("and")
             nb_letters += count_base10(base10)
     else:  # 1000
         nb_letters += len("one") + len("thousand")

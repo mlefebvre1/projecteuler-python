@@ -32,9 +32,7 @@ def make_polygonals() -> List[List[int]]:
     return polygonals
 
 
-def generate_next_candidates(
-    last_two_digits: str, visited: List[bool], polygonals: List[List[int]]
-):
+def generate_next_candidates(last_two_digits: str, visited: List[bool], polygonals: List[List[int]]):
     """if the first 2 digits match the last two digits of our number, this is a potential next candidate"""
     for index, (visited, polygonal) in enumerate(zip(visited, polygonals)):
         if not visited:
@@ -52,17 +50,13 @@ def all_visited(visited: List[bool]) -> bool:
         return True
 
 
-def cyclical_figurate_recursive_search(
-    first_two_digits: str, n: int, visited: List[bool], polygonals: List[List[int]]
-):
+def cyclical_figurate_recursive_search(first_two_digits: str, n: int, visited: List[bool], polygonals: List[List[int]]):
     if all_visited(visited) and str(n)[2:4] == first_two_digits:
         return True, 0
     for index, candidate in generate_next_candidates(str(n)[2:4], visited, polygonals):
         visited_copy = visited.copy()
         visited_copy[index] = True
-        is_done, total = cyclical_figurate_recursive_search(
-            first_two_digits, candidate, visited_copy, polygonals
-        )
+        is_done, total = cyclical_figurate_recursive_search(first_two_digits, candidate, visited_copy, polygonals)
         if is_done:
             return True, total + candidate
     else:
@@ -101,9 +95,7 @@ def problem61():
     for n in polygonals[0]:
         visited_copy = polygona_visited.copy()
         visited_copy[0] = True
-        is_done, cyclic_sum = cyclical_figurate_recursive_search(
-            str(n)[0:2], n, visited_copy, polygonals
-        )
+        is_done, cyclic_sum = cyclical_figurate_recursive_search(str(n)[0:2], n, visited_copy, polygonals)
         if is_done:
             return cyclic_sum + n
 

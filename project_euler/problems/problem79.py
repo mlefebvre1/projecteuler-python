@@ -14,9 +14,7 @@ def generate_digit_candidates(logins: List[str]) -> Iterator[str]:
 
 
 def find_largest_digit(logins: List[str], digits_to_place: List[str]) -> str:
-    largest_digit = [
-        True if str(digit) in digits_to_place else False for digit in range(10)
-    ]
+    largest_digit = [True if str(digit) in digits_to_place else False for digit in range(10)]
     for login in logins:
         # taking len - 1 because the left digit cannot be the last digit, we need a digit to compare with..
         for i, digit_to_the_left in enumerate(login[0 : len(login) - 1]):

@@ -36,9 +36,7 @@ def problem38():
     max_n = 10000
     best = 0
     for n in range(1, max_n):
-        number = reduce(
-            lambda out, digit: out + str(n * digit), range(1, 7 - len(str(n))), ""
-        )
+        number = reduce(lambda out, digit: out + str(n * digit), range(1, 7 - len(str(n))), "")
         if pandigital_validation(number, 1, 9) and int(number) > best:
             best = int(number)
     return best

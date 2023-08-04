@@ -9,9 +9,7 @@ from project_euler.utils.timeit import timeit
 def generate_candidates(primes: Iterable[int]) -> Iterable[Set[int]]:
     """For each primes generate the permutations, keep only the permutations that contains 4 digits and are primes"""
     for prime in primes:
-        permutations = map(
-            lambda x: int("".join(x)), itertools.permutations(str(prime))
-        )
+        permutations = map(lambda x: int("".join(x)), itertools.permutations(str(prime)))
         permutations_4_digits = filter(lambda x: x >= 1000, permutations)
         yield sorted(set(filter(lambda x: is_prime(x), permutations_4_digits)))
 
@@ -69,9 +67,7 @@ def problem49():
         lambda _candidate: check_three_terms_increment(_candidate),
         candidates_with_no_duplicates,
     )
-    final_candidate = filter(
-        lambda _candidate: 1487 not in _candidate, candidates_with_all_criteria
-    )
+    final_candidate = filter(lambda _candidate: 1487 not in _candidate, candidates_with_all_criteria)
     return int(extract_the_correct_terms_and_concat(next(final_candidate)))
 
 

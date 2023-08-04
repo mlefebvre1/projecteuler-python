@@ -7,9 +7,7 @@ from project_euler.utils.timeit import timeit
 
 def generate_curious_number(max_n: int) -> Iterable[int]:
     for n in range(3, max_n + 1):
-        digits_factorial_sum = reduce(
-            lambda sum_, digit: sum_ + factorial(int(digit)), str(n), 0
-        )
+        digits_factorial_sum = reduce(lambda sum_, digit: sum_ + factorial(int(digit)), str(n), 0)
         if digits_factorial_sum == n:
             yield n
 

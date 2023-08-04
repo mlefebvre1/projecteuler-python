@@ -38,9 +38,7 @@ def problem11():
     What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally)
     in the 20×20 grid?
     """
-    matrix = read_csv(
-        f"{Path(__file__).parent}/data/problem11.txt", sep=" ", header=None
-    )
+    matrix = read_csv(f"{Path(__file__).parent}/data/problem11.txt", sep=" ", header=None)
     nb_row, nb_col = 20, 20
     nb_adjacent = 4
     max_prod = 0
@@ -48,67 +46,37 @@ def problem11():
         for col in range(0, nb_col):
             # Right
             if col <= (nb_col - nb_adjacent):
-                prod = (
-                    matrix[row][col]
-                    * matrix[row][col + 1]
-                    * matrix[row][col + 2]
-                    * matrix[row][col + 3]
-                )
+                prod = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3]
                 if prod > max_prod:
                     max_prod = prod
 
             # Down
             if row <= (nb_row - nb_adjacent):
-                prod = (
-                    matrix[row][col]
-                    * matrix[row + 1][col]
-                    * matrix[row + 2][col]
-                    * matrix[row + 3][col]
-                )
+                prod = matrix[row][col] * matrix[row + 1][col] * matrix[row + 2][col] * matrix[row + 3][col]
                 if prod > max_prod:
                     max_prod = prod
 
             # Right-Down
             if col <= (nb_col - nb_adjacent) and row <= (nb_row - nb_adjacent):
-                prod = (
-                    matrix[row][col]
-                    * matrix[row + 1][col + 1]
-                    * matrix[row + 2][col + 2]
-                    * matrix[row + 3][col + 3]
-                )
+                prod = matrix[row][col] * matrix[row + 1][col + 1] * matrix[row + 2][col + 2] * matrix[row + 3][col + 3]
                 if prod > max_prod:
                     max_prod = prod
 
             # Right-up
             if col <= (nb_col - nb_adjacent) and row >= nb_adjacent:
-                prod = (
-                    matrix[row][col]
-                    * matrix[row - 1][col + 1]
-                    * matrix[row - 2][col + 2]
-                    * matrix[row - 3][col + 3]
-                )
+                prod = matrix[row][col] * matrix[row - 1][col + 1] * matrix[row - 2][col + 2] * matrix[row - 3][col + 3]
                 if prod > max_prod:
                     max_prod = prod
 
             # Left-Down
             if col >= nb_adjacent and row <= (nb_row - nb_adjacent):
-                prod = (
-                    matrix[row][col]
-                    * matrix[row + 1][col - 1]
-                    * matrix[row + 2][col - 2]
-                    * matrix[row + 3][col - 3]
-                )
+                prod = matrix[row][col] * matrix[row + 1][col - 1] * matrix[row + 2][col - 2] * matrix[row + 3][col - 3]
                 if prod > max_prod:
                     max_prod = prod
 
             # Left-Up
             if col >= nb_adjacent and row >= nb_adjacent:
-                prod = (
-                    matrix[row][col]
-                    * matrix[row - 1][col - 1]
-                    * matrix[row - 2][col - 2]
-                    * matrix[row - 3][col - 3]
-                )
+                prod = matrix[row][col] * matrix[row - 1][col - 1] * matrix[row - 2][col - 2] * matrix[row - 3][col - 3]
                 if prod > max_prod:
                     max_prod = prod
 

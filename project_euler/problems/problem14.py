@@ -4,9 +4,7 @@ from project_euler.utils.timeit import timeit
 def chain(n: int) -> int:
     chain_len = 0
     while n != 1:
-        if (
-            n % 2
-        ):  # Skip a step since for an odd number : 3*n+1 always gives a even number
+        if n % 2:  # Skip a step since for an odd number : 3*n+1 always gives a even number
             n = (3 * n + 1) // 2
             chain_len += 2
         else:  # is even

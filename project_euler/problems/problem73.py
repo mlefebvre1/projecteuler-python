@@ -28,9 +28,7 @@ def problem73():
         n_lower = ceil(d * lower_bound)
         n_upper = ceil(d * upper_bound)
         for n in range(n_lower, n_upper):
-            if (
-                n % 2 or d % 2
-            ):  # make sure n and d are not both even, so we can save the gcd calculation
+            if n % 2 or d % 2:  # make sure n and d are not both even, so we can save the gcd calculation
                 if gcd(n, d) == 1:
                     nb_fractions += 1
     return nb_fractions

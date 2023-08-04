@@ -29,9 +29,7 @@ def problem35():
     """
     max_prime = int(1e6)
     primes = sieves_range(2, max_prime)
-    nb_circular = (
-        2  # add 2 and 5, the only numbers that does not start with 1, 3, 7 or 9
-    )
+    nb_circular = 2  # add 2 and 5, the only numbers that does not start with 1, 3, 7 or 9
     for prime in primes:
         prime = str(prime)
         # consider checking only numbers that start with 1,3,7 or 9, else they are not prime

@@ -21,9 +21,7 @@ def apply_shifts(a_init: int, b_init: int, c_init: int) -> Iterator[str]:
         else:  # The total is greater than 0, we need to apply a left shift
             a, b, c = left_step(a, b, c)
             yield "L"
-        if (
-            a == a_init and b == b_init and c == c_init
-        ):  # If we recover the initial matrix, this indicates we are done
+        if a == a_init and b == b_init and c == c_init:  # If we recover the initial matrix, this indicates we are done
             break
 
 
@@ -39,9 +37,7 @@ def generate_d_solutions(_Ds: Iterator[int]) -> [Tuple[int, int]]:
     step_matrix = {"L": [[1, 0], [1, 1]], "R": [[1, 1], [0, 1]]}
     for D in _Ds:
         steps = apply_shifts(1, 0, -D)
-        _N = matrix2x2_mult(
-            step_matrix[next(steps)], step_matrix[next(steps)]
-        )  # initial step
+        _N = matrix2x2_mult(step_matrix[next(steps)], step_matrix[next(steps)])  # initial step
         for step in steps:
             _N = matrix2x2_mult(_N, step_matrix[step])
         yield D, _N[0][0]

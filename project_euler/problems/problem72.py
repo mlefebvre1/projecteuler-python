@@ -24,9 +24,7 @@ def generate_phi_by_n():
         if n >= 2:
             phi = int(
                 reduce(
-                    lambda result, prime: result * (1 - 1 / prime)
-                    if not (n % prime)
-                    else result,
+                    lambda result, prime: result * (1 - 1 / prime) if not (n % prime) else result,
                     distinct_primes,
                     n,
                 )

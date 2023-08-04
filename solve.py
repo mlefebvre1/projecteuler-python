@@ -8,9 +8,7 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-p", "--problem", type=int, help="Specify which problem number you want to run"
-    )
+    parser.add_argument("-p", "--problem", type=int, help="Specify which problem number you want to run")
     args = parser.parse_args()
     if args.problem is not None:
         problem = f"problem{args.problem if args.problem > 9 else f'0{args.problem}'}"

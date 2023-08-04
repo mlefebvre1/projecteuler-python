@@ -70,16 +70,10 @@ def problem51():
                 lambda x: x != "".zfill(nb_digits - 1),
                 generate_binary_strings_n_digits(nb_digits - 1),
             ):  # ignore the binary string with all 0's
-                i_nb_digits = reduce(
-                    lambda tot, x: tot + 1 if x == "0" else tot, binary_string, 0
-                )
+                i_nb_digits = reduce(lambda tot, x: tot + 1 if x == "0" else tot, binary_string, 0)
                 for i in range(int(10 ** (i_nb_digits - 1)), int(10**i_nb_digits)):
-                    combination_values = generate_combination_values(
-                        i, j, binary_string
-                    )
-                    combination_values_that_are_prime = list(
-                        filter(lambda x: is_prime(x), combination_values)
-                    )
+                    combination_values = generate_combination_values(i, j, binary_string)
+                    combination_values_that_are_prime = list(filter(lambda x: is_prime(x), combination_values))
                     if len(combination_values_that_are_prime) == 8:
                         return combination_values_that_are_prime[0]
         nb_digits += 1

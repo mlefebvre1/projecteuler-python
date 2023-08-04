@@ -39,18 +39,11 @@ def problem82() -> int:
         for y in range(y_len):
             for x in range(1, x_len):
                 if y == 0:
-                    _matrix[y][x] = (
-                        min(_matrix[y + 1][x], _matrix[y][x - 1]) + matrix[y][x]
-                    )
+                    _matrix[y][x] = min(_matrix[y + 1][x], _matrix[y][x - 1]) + matrix[y][x]
                 elif y == y_len - 1:
-                    _matrix[y][x] = (
-                        min(_matrix[y - 1][x], _matrix[y][x - 1]) + matrix[y][x]
-                    )
+                    _matrix[y][x] = min(_matrix[y - 1][x], _matrix[y][x - 1]) + matrix[y][x]
                 else:
-                    _matrix[y][x] = (
-                        min(_matrix[y + 1][x], _matrix[y - 1][x], _matrix[y][x - 1])
-                        + matrix[y][x]
-                    )
+                    _matrix[y][x] = min(_matrix[y + 1][x], _matrix[y - 1][x], _matrix[y][x - 1]) + matrix[y][x]
         min_path = min(_matrix[:, (x_len - 1)])
         if min_path == previous_min_path:
             min_path_stable_cnt += 1

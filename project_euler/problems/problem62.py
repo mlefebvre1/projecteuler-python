@@ -46,9 +46,7 @@ def map_by_sorted_digits(cubics: List[int]) -> DefaultDict[str, List[int]]:
     return hashmap
 
 
-def search_hash_with_correct_len_generator(
-    hashmap: DefaultDict[str, List[int]], len_: int
-) -> Iterator[int]:
+def search_hash_with_correct_len_generator(hashmap: DefaultDict[str, List[int]], len_: int) -> Iterator[int]:
     for hash_ in hashmap:
         if len(hashmap[hash_]) == len_:
             yield sorted(hashmap[hash_])[0]

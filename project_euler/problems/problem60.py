@@ -16,15 +16,12 @@ def find_5_concat_primes(_prime1: int, _primes: List[int], nb_primes: int) -> in
         return _prime1
     concat_with_prime1_and_is_prime = list(
         filter(
-            lambda _prime2: is_prime(int(f"{_prime1}{_prime2}"))
-            and is_prime(int(f"{_prime2}{_prime1}")),
+            lambda _prime2: is_prime(int(f"{_prime1}{_prime2}")) and is_prime(int(f"{_prime2}{_prime1}")),
             _primes,
         )
     )
     for prime2 in concat_with_prime1_and_is_prime:
-        ans = find_5_concat_primes(
-            prime2, concat_with_prime1_and_is_prime, nb_primes + 1
-        )
+        ans = find_5_concat_primes(prime2, concat_with_prime1_and_is_prime, nb_primes + 1)
         if ans:  # de-stack here
             return ans + _prime1
     return 0

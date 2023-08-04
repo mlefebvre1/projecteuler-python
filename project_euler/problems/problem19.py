@@ -39,9 +39,7 @@ def problem19():
     nb_sundays = 0
     for year in range(1901, 2000):  # for each year of the twentieth century
         for month in range(0, 12):  # for each month in the year
-            nb_days = month_nb_days(
-                month, year
-            )  # this gives the number of days in for the current month
+            nb_days = month_nb_days(month, year)  # this gives the number of days in for the current month
             while day < nb_days:
                 day += 7
             day -= nb_days  # this gives the first day of the next month

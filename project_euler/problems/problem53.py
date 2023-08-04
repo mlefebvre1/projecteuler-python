@@ -26,9 +26,7 @@ def problem53():
     """
     target_value = int(1e6)
     combinatorics = generate_combinatorics()
-    combinatorics_greater_than_target = filter(
-        lambda c: c > target_value, combinatorics
-    )
+    combinatorics_greater_than_target = filter(lambda c: c > target_value, combinatorics)
     return len(list(combinatorics_greater_than_target))
 
 

@@ -42,9 +42,7 @@ def problem43():
     primes = list(sieves(17))
 
     sub_string_divisibles = filter(
-        lambda permutation: True
-        if is_sub_string_divisible("".join(permutation), primes)
-        else False,
+        lambda permutation: True if is_sub_string_divisible("".join(permutation), primes) else False,
         permutations,
     )
     sub_string_divisibles_int = map(lambda n: int("".join(n)), sub_string_divisibles)

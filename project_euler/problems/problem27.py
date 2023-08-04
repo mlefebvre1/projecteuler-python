@@ -18,9 +18,7 @@ def quadratic_consecutive_primes(a: int, b: int) -> int:
     return n
 
 
-def generate_quadratic_consecutive_primes(
-    lowerbound: int, upperbound: int
-) -> Iterator[int]:
+def generate_quadratic_consecutive_primes(lowerbound: int, upperbound: int) -> Iterator[int]:
     for a in range(lowerbound, upperbound):
         for b in range(lowerbound, upperbound):
             yield quadratic_consecutive_primes(a, b), a, b

@@ -43,9 +43,7 @@ def problem64():
     k = 10000
     exclude_list = [n * n for n in range(2, k)]
     possible_n = filter(lambda n: n not in exclude_list, range(2, k + 1))
-    odd_period_sqrts = filter(
-        lambda n: (len(list(sqrt_cf_expansion_generator(n))) - 1) % 2, possible_n
-    )
+    odd_period_sqrts = filter(lambda n: (len(list(sqrt_cf_expansion_generator(n))) - 1) % 2, possible_n)
     return len(list(odd_period_sqrts))
 
 

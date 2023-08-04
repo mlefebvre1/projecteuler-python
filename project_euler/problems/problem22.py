@@ -7,9 +7,7 @@ from project_euler.utils.timeit import timeit
 def generate_name_score(names: List[str]) -> List[int]:
     _rebase_value = -ord("A") + 1
     for index, name in enumerate(names):
-        yield reduce(
-            lambda score, letter: ord(letter) + score + _rebase_value, name, 0
-        ) * (index + 1)
+        yield reduce(lambda score, letter: ord(letter) + score + _rebase_value, name, 0) * (index + 1)
 
 
 @timeit

@@ -44,9 +44,7 @@ def problem92():
     How many starting numbers below ten million will arrive at 89?
     """
     max_n = int(10e6)
-    max_digit_sum = (
-        9 * 9 * (len(str(max_n)) - 1)
-    )  # max digit square sum would be 9^2 * 7
+    max_digit_sum = 9 * 9 * (len(str(max_n)) - 1)  # max digit square sum would be 9^2 * 7
 
     mem = generate_digit_sum_values(max_digit_sum)
 

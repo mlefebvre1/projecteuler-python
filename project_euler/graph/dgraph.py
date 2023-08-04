@@ -35,9 +35,7 @@ class DGraph:
     @classmethod
     def make_from_matrix_down_right_only(cls, matrix: npt.NDArray) -> DGraph:
         """Create a graph from a matrix of edges. Only down and right connections are allowed"""
-        graph = DGraph(
-            nb_vertices=(matrix.size)
-        )  # exclude last vertex because it has no connections anyway..
+        graph = DGraph(nb_vertices=(matrix.size))  # exclude last vertex because it has no connections anyway..
         x_len, y_len = matrix.shape
         for vertex_id in range(len(graph.vertices) - 1):
             x, y = vertex_id % x_len, vertex_id // x_len
@@ -65,9 +63,7 @@ class DGraph:
     @classmethod
     def make_from_matrix_up_down_right_only(cls, matrix: npt.NDArray) -> DGraph:
         """Create a graph from a matrix of edges. Only up, down and right connections are allowed"""
-        graph = DGraph(
-            nb_vertices=(matrix.size)
-        )  # exclude last vertex because it has no connections anyway..
+        graph = DGraph(nb_vertices=(matrix.size))  # exclude last vertex because it has no connections anyway..
         x_len, y_len = matrix.shape
         for vertex_id in range(len(graph.vertices) - 1):
             x, y = vertex_id % x_len, vertex_id // x_len
@@ -94,18 +90,14 @@ class DGraph:
                 else:
                     graph.add_edge(vertex_id, {v_down: w_down, v_up: w_up})
             else:
-                graph.add_edge(
-                    vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up}
-                )
+                graph.add_edge(vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up})
 
         return graph
 
     @classmethod
     def make_from_matrix_up_down_right_left(cls, matrix: npt.NDArray) -> DGraph:
         """Create a graph from a matrix of edges. Only up, down and right connections are allowed"""
-        graph = DGraph(
-            nb_vertices=(matrix.size)
-        )  # exclude last vertex because it has no connections anyway..
+        graph = DGraph(nb_vertices=(matrix.size))  # exclude last vertex because it has no connections anyway..
         x_len, y_len = matrix.shape
         for vertex_id in range(len(graph.vertices) - 1):
             x, y = vertex_id % x_len, vertex_id // x_len
@@ -130,22 +122,16 @@ class DGraph:
                 elif x == x_len - 1:
                     graph.add_edge(vertex_id, {v_left: w_left, v_down: w_down})
                 else:
-                    graph.add_edge(
-                        vertex_id, {v_right: w_right, v_left: w_left, v_down: w_down}
-                    )
+                    graph.add_edge(vertex_id, {v_right: w_right, v_left: w_left, v_down: w_down})
             elif y == (y_len - 1):  # last line
                 if x == 0:
                     graph.add_edge(vertex_id, {v_right: w_right, v_up: w_up})
                 elif x == x_len - 1:
                     continue
                 else:
-                    graph.add_edge(
-                        vertex_id, {v_right: w_right, v_left: w_left, v_up: w_up}
-                    )
+                    graph.add_edge(vertex_id, {v_right: w_right, v_left: w_left, v_up: w_up})
             elif x == 0:
-                graph.add_edge(
-                    vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up}
-                )
+                graph.add_edge(vertex_id, {v_right: w_right, v_down: w_down, v_up: w_up})
             elif x == (x_len - 1):  # last column.. can't go right
                 graph.add_edge(vertex_id, {v_left: w_left, v_down: w_down, v_up: w_up})
             else:

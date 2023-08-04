@@ -109,9 +109,7 @@ def is_full_house(hand: List[Tuple[int, str]]) -> Tuple[bool, List[int]]:
         return False, []
 
 
-def highest_card_duel(
-    hand1: List[Tuple[int, str]], hand2: List[Tuple[int, str]]
-) -> bool:
+def highest_card_duel(hand1: List[Tuple[int, str]], hand2: List[Tuple[int, str]]) -> bool:
     """
     Determine the highest card between player 1 and player 2, in case both player have the same highest card,
     look at the second highest, etc. until we found which player has the highest card

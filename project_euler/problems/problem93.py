@@ -121,9 +121,7 @@ def problem93() -> int:
     a, b = 1, 2
     for c in range(b + 1, max_digit + 1):
         for d in range(c + 1, max_digit + 1):
-            expressions = get_expr(
-                str(a), str(b), str(c), str(d), base_expr, operations
-            )
+            expressions = get_expr(str(a), str(b), str(c), str(d), base_expr, operations)
             results = get_results(expressions, max_score)
             score = get_score(results)
             if score > best["score"]:
