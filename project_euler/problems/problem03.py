@@ -1,8 +1,8 @@
 from math import sqrt
 
 from project_euler.number_theory.primes import is_prime
-
 from project_euler.utils.timeit import timeit
+from project_euler.general import is_divisible_by
 
 
 @timeit
@@ -14,10 +14,8 @@ def problem03():
 
     What is the largest prime factor of the number 600851475143 ?
     """
-
     k = 600851475143
-    candidates = filter(lambda n: (k % n == 0) and is_prime(n), range(1, int(sqrt(k))))
-    return max(candidates)
+    return max(n for n in range(1, int(sqrt(k))) if is_divisible_by(k, n) and is_prime(n))
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-from project_euler.number_theory.series import fibonacci_generator
+from project_euler.number_theory.series import fibonacci
 
 from project_euler.utils.timeit import timeit
 
@@ -30,7 +30,7 @@ def problem25():
     What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
     """
     term = 0
-    generator = fibonacci_generator()
+    generator = fibonacci()
     while True:
         f = next(generator)
         if len(str(f)) >= 1000:

@@ -1,4 +1,5 @@
 from project_euler.utils.timeit import timeit
+from project_euler.general import is_divisible_by
 
 
 @timeit
@@ -11,15 +12,8 @@ def problem01():
 
     Find the sum of all the multiples of 3 or 5 below 1000.
     """
-    max_n = 1000
-    multipliers = (3, 5)
-    multiples = set()
-    for multiplier in multipliers:
-        n = multiplier
-        while n < max_n:
-            multiples.add(n)
-            n += multiplier
-    return sum(multiples)
+
+    return sum((n for n in range(1000) if is_divisible_by(n, 3) or is_divisible_by(n, 5)))
 
 
 if __name__ == "__main__":

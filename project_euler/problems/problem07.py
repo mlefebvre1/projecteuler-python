@@ -13,10 +13,7 @@ def problem07():
 
     What is the 10 001st prime number?
     """
-    max_prime = int(1e6)
-    prime_index = 10001
-    primes = list(sieves(max_prime))
-    return primes[prime_index - 1]
+    return list(sieves(int(1e6)))[10000]
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 from math import pow, floor, log
 
 from project_euler.number_theory.primes import sieves
-
 from project_euler.utils.timeit import timeit
+from numpy import prod
 
 
 @timeit
@@ -18,16 +18,7 @@ def problem05():
     from 1 to 20 to find the greatest number of occurences. Finally, the smallest positive number is the multiplication
     of all the primes numbers up to 20 with their greatest occurance.
     """
-    max_n = 20
-    primes = sieves(max_n)
-    prime_occurence = [0] * (max_n + 1)
-    for prime in primes:
-        prime_occurence[prime] = floor(log(max_n) / log(prime))
-
-    smallest_positive_number = 1
-    for prime, occurence in enumerate(prime_occurence):
-        smallest_positive_number *= int(pow(prime, occurence))
-    return smallest_positive_number
+    return int(prod([pow(prime, floor(log(20, prime))) for prime in sieves(20)]))
 
 
 if __name__ == "__main__":

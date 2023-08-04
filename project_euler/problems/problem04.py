@@ -13,14 +13,7 @@ def problem04():
 
     Find the largest palindrome made from the product of two 3-digit numbers.
     """
-    largest = 0
-    for n1 in range(100, 999):
-        for n2 in range(100, 999):
-            prod = n1 * n2
-            if prod > largest:
-                if is_palindrome(prod):
-                    largest = prod
-    return largest
+    return max(n1 * n2 for n1 in range(100, 999) for n2 in range(100, 999) if is_palindrome(n1 * n2))
 
 
 if __name__ == "__main__":

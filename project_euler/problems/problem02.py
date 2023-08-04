@@ -1,6 +1,7 @@
-from project_euler.number_theory.series import fibonacci_generator
-
+from project_euler.number_theory.series import fibonacci
 from project_euler.utils.timeit import timeit
+from project_euler.general import is_even
+from itertools import takewhile
 
 
 @timeit
@@ -16,16 +17,8 @@ def problem02():
     By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the
     even-valued terms.
     """
-    max_f_value = int(4e6)
-    total = 0
-    fib_gen = fibonacci_generator()
-    while 1:
-        fn = next(fib_gen)
-        if fn >= max_f_value:
-            break
-        if fn % 2 == 0:
-            total += fn
-    return total
+
+    return sum(takewhile(lambda n: n < int(4e6), (n for n in fibonacci() if is_even(n))))
 
 
 if __name__ == "__main__":

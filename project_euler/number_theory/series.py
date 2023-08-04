@@ -1,4 +1,4 @@
-def fibonacci_generator():
+def fibonacci():
     fn_minus1, fn = 0, 1
     while True:
         yield fn_minus1

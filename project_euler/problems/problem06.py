@@ -19,13 +19,7 @@ def problem06():
 
     Solution : pretty straight forward...
     """
-    max_n = 100
-    sum_of_square, square_of_sum = 0, 0
-    for n in range(max_n + 1):
-        sum_of_square += n * n
-        square_of_sum += n
-    square_of_sum = square_of_sum**2
-    return square_of_sum - sum_of_square
+    return sum(range(0, 101)) ** 2 - sum(map(lambda n: n**2, range(0, 101)))
 
 
 if __name__ == "__main__":
