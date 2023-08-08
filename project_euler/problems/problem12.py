@@ -1,17 +1,14 @@
-from math import sqrt
-
 from project_euler.number_theory.factor import factorize
-from project_euler.number_theory.primes import sieves
 
 from project_euler.utils.timeit import timeit
+from typing import Iterator
 
 
-def root(a: int, b: int, c: int) -> float:
-    return (-b + sqrt(b**2 - 4 * a * c)) / (2 * a)
-
-
-def t(n: int) -> float:
-    return n * (n + 1) / 2
+def triangular() -> Iterator[int]:
+    n = 1
+    while True:
+        yield n * (n + 1) // 2
+        n += 1
 
 
 @timeit
@@ -39,24 +36,7 @@ def problem12():
 
     What is the value of the first triangle number to have over five hundred divisors?
     """
-    max_n = int(1000)
-    target = 500
-    primes = sieves(max_n)
-    k = 1
-    old_k = 1
-    # First find the search space by multiplying prime numbers until the factorize is
-    for prime in primes:
-        old_k = k
-        k *= prime
-        nb_factors = len(factorize(k))
-        if nb_factors > target:
-            break
-    n = int(root(1, 1, -2 * old_k)) + 1
-    k = t(n)
-    while len(factorize(int(k))) < target:
-        n += 1
-        k += n
-    return int(k)
+    return next(t for t in triangular() if len(factorize(t)) >= 500)
 
 
 if __name__ == "__main__":

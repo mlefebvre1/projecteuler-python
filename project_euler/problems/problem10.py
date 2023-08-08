@@ -13,9 +13,7 @@ def problem10():
 
     Find the sum of all the primes below two million
     """
-    max_prime = int(2e6)
-    primes = sieves(max_prime)
-    return sum(primes)
+    return sum(sieves(int(2e6)))
 
 
 if __name__ == "__main__":

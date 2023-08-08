@@ -2,7 +2,7 @@ from math import pow, floor, log
 
 from project_euler.number_theory.primes import sieves
 from project_euler.utils.timeit import timeit
-from numpy import prod
+from project_euler.general import prod
 
 
 @timeit

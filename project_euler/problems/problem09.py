@@ -1,6 +1,6 @@
 from project_euler.geometry.pythagorean import pythagorean_triples
-
 from project_euler.utils.timeit import timeit
+from project_euler.general import prod
 
 
 @timeit
@@ -18,12 +18,7 @@ def problem09():
     Find the product abc.
     """
     triples = list(pythagorean_triples(2000))
-    ans = 0
-    for triple in triples:
-        if sum(triple) == 1000:
-            ans = triple[0] * triple[1] * triple[2]
-            break
-    return ans
+    return prod(next(triple for triple in triples if sum(triple) == 1000))
 
 
 if __name__ == "__main__":
