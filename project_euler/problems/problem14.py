@@ -1,10 +1,11 @@
 from project_euler.utils.timeit import timeit
+from project_euler.general import is_odd
 
 
 def chain(n: int) -> int:
     chain_len = 0
     while n != 1:
-        if n % 2:  # Skip a step since for an odd number : 3*n+1 always gives a even number
+        if is_odd(n):  # Skip a step since for an odd number : 3*n+1 always gives a even number
             n = (3 * n + 1) // 2
             chain_len += 2
         else:  # is even
@@ -34,14 +35,9 @@ def problem14():
 
     NOTE: Once the chain starts the terms are allowed to go above one million.
     """
-    end = int(1e6)
-    max_chain = 0
-    max_n = 0
-    # We don't need to check anything below half of the candidates since chain(2*n) = 1 + chain(n)
-    for n in range(end // 2, end):
-        chain_len = chain(n)
-        if chain_len > max_chain:
-            max_chain, max_n = chain_len, n
+    r = range(int(1e6 / 2), int(1e6))
+    chains = zip(map(chain, r), r)
+    (_, max_n) = max(chains)
     return max_n
 
 

@@ -1,4 +1,5 @@
 from project_euler.utils.timeit import timeit
+import numpy as np
 
 
 @timeit
@@ -23,16 +24,16 @@ def problem15():
     3 |  4   10  20  35  ...
     4 |  5   15  35  70  ...
     """
-    mem = [[0 for _ in range(20 + 1)] for _ in range(20 + 1)]
+    a = np.zeros((21, 21), dtype=np.int64)
     # Initialize the first row and column
     for col in range(1, 20 + 1):
-        mem[1][col] = col + 1
+        a[1][col] = col + 1
     for row in range(1, 20 + 1):
-        mem[row][1] = row + 1
+        a[row][1] = row + 1
     for row in range(2, 20 + 1):
         for col in range(2, 20 + 1):
-            mem[row][col] = mem[row - 1][col] + mem[row][col - 1]
-    return mem[20][20]
+            a[row][col] = a[row - 1][col] + a[row][col - 1]
+    return a[20][20]
 
 
 if __name__ == "__main__":

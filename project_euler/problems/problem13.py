@@ -111,13 +111,9 @@ def problem13():
     53503534226472524250874054075591789781264330331690
     """
     # Read the data and prepare the matrix
-    total = 0
     with open(f"{Path(__file__).parent}/data/problem13.txt", "r") as file:
-        data = file.readlines()
-        for line in data:
-            n = int(line.split("\n")[0])
-            total += n
-    return int(str(total)[0:10])
+        total = sum(int(line.split("\n")[0]) for line in file.readlines())
+        return int(str(total)[0:10])
 
 
 if __name__ == "__main__":

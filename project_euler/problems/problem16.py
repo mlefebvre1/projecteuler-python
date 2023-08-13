@@ -1,5 +1,3 @@
-from functools import reduce
-
 from project_euler.utils.timeit import timeit
 
 
@@ -15,10 +13,7 @@ def problem16():
 
     I guess it's too easy in python..
     """
-    exp = 1000
-    d = 2**exp
-    digit_sum = reduce(lambda sum_, digit: sum_ + int(digit), str(d), 0)
-    return digit_sum
+    return sum(int(d) for d in str(pow(2, 1000)))
 
 
 if __name__ == "__main__":
