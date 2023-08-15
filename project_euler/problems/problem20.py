@@ -16,11 +16,7 @@ def problem20():
 
     Find the sum of the digits in the number 100!
     """
-    n = factorial(100)
-    digits_sum = 0
-    for digit in str(n):
-        digits_sum += int(digit)
-    return digits_sum
+    return sum(int(d) for d in str(factorial(100)))
 
 
 if __name__ == "__main__":

@@ -1,15 +1,26 @@
 from project_euler.utils.timeit import timeit
+from project_euler.general import is_divisible_by
+
+
+def is_leap(year):
+    if is_divisible_by(year, 4):
+        if is_divisible_by(year, 100):
+            if is_divisible_by(year, 400):
+                return True
+            else:
+                return False
+        else:
+            return True
+    return False
 
 
 def month_nb_days(month_index: int, year: int) -> int:
-    # jan(31), feb(28), mars(31), april(30), may(31), june(30), july(31), august(31), september(30), october(31),
-    # november(30), december(31)
+    """
+    jan(31), feb(28), mar(31), apr(30), may(31), june(30), july(31), aug(31), sept(30), oct(31),
+    nov(30), dec(31)
+    """
     month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    if year % 4 == 0 and year % 400:
-        leap = True
-    else:
-        leap = False
-    if leap and month_index == 1:  # leap years only affect february
+    if is_leap(year) and month_index == 1:  # leap years only affect february
         return month[month_index] + 1
     else:
         return month[month_index]

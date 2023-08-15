@@ -85,11 +85,7 @@ def problem17():
     (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with
     British usage.
     """
-    max_n = 1000
-    nb_letters = 0
-    for n in range(1, max_n + 1):
-        nb_letters += count_letters(n)
-    return nb_letters
+    return sum(count_letters(n) for n in range(1, 1001))
 
 
 if __name__ == "__main__":

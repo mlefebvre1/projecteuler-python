@@ -64,8 +64,7 @@ def problem18():
                 grid[y][x] += grid[y - 1][x - 1]
             else:  # any other element
                 grid[y][x] += max(grid[y - 1][x - 1], grid[y - 1][x])
-    max_path = max(grid[len(grid) - 1])
-    return max_path
+    return max(grid[len(grid) - 1])
 
 
 if __name__ == "__main__":
