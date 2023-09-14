@@ -18,13 +18,7 @@ def problem21():
 
     Evaluate the sum of all the amicable numbers under 10000.
     """
-    max_n = 10000
-    total = 0
-    for a in range(1, max_n):
-        b = proper_divisors_sum(a)
-        if proper_divisors_sum(b) == a and a != b:
-            total += b
-    return total
+    return sum(b for a in range(1, 10000) if a != (b := proper_divisors_sum(a)) and proper_divisors_sum(b) == a)
 
 
 if __name__ == "__main__":

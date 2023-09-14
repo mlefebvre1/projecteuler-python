@@ -4,10 +4,10 @@ from pathlib import Path
 from project_euler.utils.timeit import timeit
 
 
-def generate_name_score(names: List[str]) -> List[int]:
-    _rebase_value = -ord("A") + 1
+def scores(names: List[str]) -> List[int]:
+    rebase_value = -ord("A") + 1
     for index, name in enumerate(names):
-        yield reduce(lambda score, letter: ord(letter) + score + _rebase_value, name, 0) * (index + 1)
+        yield reduce(lambda score, letter: ord(letter) + score + rebase_value, name, 0) * (index + 1)
 
 
 @timeit
@@ -25,12 +25,8 @@ def problem22():
     What is the total of all the name scores in the file?
     """
     with open(f"{Path(__file__).parent}/data/problem22.txt", "r") as fp:
-        fp_data = fp.read()
-        fp.close()
-    names = sorted(fp_data.split(","))
-    names = [name.replace('"', "") for name in names]
-    names_score = sum(generate_name_score(names))
-    return names_score
+        names = sorted(name.replace('"', "") for name in fp.read().split(","))
+    return sum(scores(names))
 
 
 if __name__ == "__main__":

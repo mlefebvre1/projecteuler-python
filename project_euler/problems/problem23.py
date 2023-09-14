@@ -3,7 +3,7 @@ from project_euler.number_theory.factor import proper_divisors_sum
 from project_euler.utils.timeit import timeit
 
 
-def generate_abundants(max_n):
+def get_abundants(max_n):
     for n in range(1, max_n):
         pds = proper_divisors_sum(n)
         if pds > n:
@@ -30,23 +30,16 @@ def problem23():
 
     Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
     """
-    max_n = 28123
-    # Get all abundants numbers
-    abundants = list(generate_abundants(max_n))
+    abundants = list(get_abundants(28123))
     # In a table identify all numbers that can be written by the sum of two abundant numbers
-    sum_of_two_abundant_smaller_than_max = [False] * max_n
-    for a in abundants:
-        for b in abundants:
-            n = a + b
-            if n < max_n:
-                sum_of_two_abundant_smaller_than_max[n] = True
-    # Now that we know all the numbers that can be written as tbe sum of two abundants, find the sum of all n which
+
+    can_be_written = [False] * 28123
+    for n in (n for a in abundants for b in abundants if (n := a + b) < 28123):
+        can_be_written[n] = True
+
+    # Now that we know all the numbers that can be written as the sum of two abundants, find the sum of all n which
     # are not written as the sum of two abundants
-    sum_non_two_abundant = 0
-    for n, present in enumerate(sum_of_two_abundant_smaller_than_max):
-        if not present:
-            sum_non_two_abundant += n
-    return sum_non_two_abundant
+    return sum(n for n, can in enumerate(can_be_written) if not can)
 
 
 if __name__ == "__main__":
